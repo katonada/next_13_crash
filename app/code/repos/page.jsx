@@ -4,8 +4,6 @@ import { FaStar, FaCodeBranch, FaEye } from 'react-icons/fa';
 async function fetchRepos() {
     const res = await fetch('https://api.github.com/users/katonada/repos');
 
-    await new Promise((resolve) => { setTimeout(resolve, 10000); });
-
     const repos = await res.json();
     return repos;
 }
