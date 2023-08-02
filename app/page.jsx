@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import loadingPage from './loading';
 import Courses from './components/Courses';
+import CourseSearch from './components/CourseSearch';
 
 const HomePage = () => {
 
@@ -28,6 +29,7 @@ const HomePage = () => {
     return (
         <div>
             <h1>Wellcome to 600Code</h1>
+            <CourseSearch getSearchResults={(results) => setCourses(results)} />
             <Courses courses={courses}/>
         </div>
     );
