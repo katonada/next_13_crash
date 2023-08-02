@@ -3,7 +3,9 @@ import Link from 'next/link';
 async function fetchRepoContents (name) {
     // await new Promise((resolve) => setTimeout(resolve, 3000));
 
-    const res = await fetch(`https://api.github.com/repos/katonada/${name}/contents`);
+    const res = await fetch(`https://api.github.com/repos/katonada/${name}/contents`, {
+        next: { revalidate: 60 }
+    });
     const repos = await res.json();
     return repos;
 }

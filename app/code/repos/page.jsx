@@ -2,7 +2,9 @@ import Link from 'next/link';
 import { FaStar, FaCodeBranch, FaEye } from 'react-icons/fa';
 
 async function fetchRepos() {
-    const res = await fetch('https://api.github.com/users/katonada/repos');
+    const res = await fetch('https://api.github.com/users/katonada/repos', {
+        next: { revalidate: 60}
+    });
 
     const repos = await res.json();
     return repos;
